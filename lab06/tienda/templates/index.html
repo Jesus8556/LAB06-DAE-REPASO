@@ -28,10 +28,12 @@
 </div>
 
 <div class="row">
-    {% for prod in product_list %}
+    {% for prod in productos %}
     <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-            <a href="producto/{{ prod.id }}"><img class="card-img-top" src="https://img.lovepik.com/free-png/20220101/lovepik-soda-png-image_401150104_wh860.png" alt=""></a>
+            {% if prod.imagen %}
+            <a href="producto/{{ prod.id }}"><img class="card-img-top" src="{{ prod.imagen.url }}" alt="" width="200" ></a>
+            {% endif %}
             <div class="card-body">
                 <h4 class="card-title">
                     <a href="producto/{{ prod.id }}">{{ prod.nombre }}</a>
